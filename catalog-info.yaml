@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: qs-knox
+  annotations:
+    composer.io.nrs.gov.bc.ca/generators: backstage-location,nr-repository-composer,gh-issue-templates
+spec:
+  targets:
+    - backend/catalog-info.yaml
+    - frontend/catalog-info.yaml
+  type: path
