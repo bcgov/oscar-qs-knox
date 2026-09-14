@@ -59,7 +59,7 @@ jobs:
       - name: Set build output parameters
         id: set-build-output-parameters
         run: |
-          source ./env.sh build ./ --skip-vault
+          source ./env.sh build ./backend --skip-vault
           echo "project_version=${VERSION}" >> $GITHUB_OUTPUT
           echo "git_commit=$(git rev-parse --verify HEAD)" >> $GITHUB_OUTPUT
           echo "build_guid=uuid::$(uuidgen)" >> $GITHUB_OUTPUT

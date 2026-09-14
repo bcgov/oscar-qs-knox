@@ -33,8 +33,8 @@ jobs:
             /orgs/${OWNER}/packages/container/${package_name_encoded}/versions \
             --paginate \
             --jq '.[] | select(
-              any(.metadata.container.tags[]?; 
-                test("(^|[-.])'"$PR_NUMBER"'([-.]|$)") 
+              any(.metadata.container.tags[]?;
+                test("(^|[-.])'"$PR_NUMBER"'([-.]|$)")
                 and
                 (test("^'"$PR_NUMBER"'$|^[vVd]?\\d+(\\.\\d+)*$") | not)
               )
