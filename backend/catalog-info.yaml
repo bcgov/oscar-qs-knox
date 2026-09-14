@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  system: qs-knox
+  type: website
+  lifecycle: production
+  owner: ""
+metadata:
+  name: qs-knox-backend
+  description: ""
+  title: Quick Start Backend
+  annotations:
+    license: Apache-2.0
+    github.com/project-slug: bcgov/oscar-qs-knox
+    composer.io.nrs.gov.bc.ca/generators: backstage,gh-docker-build
+    playbook.io.nrs.gov.bc.ca/clientId: fff
+    playbook.io.nrs.gov.bc.ca/ociArtifacts: ""
+    playbook.io.nrs.gov.bc.ca/publishArtifactSuffix: dist
+    playbook.io.nrs.gov.bc.ca/unitTestsPath: ""
+    playbook.io.nrs.gov.bc.ca/artifactRepositoryType: GitHubPackages
+    playbook.io.nrs.gov.bc.ca/artifactRepositoryPath: https://maven.pkg.github.com/bcgov/oscar-qs-knox
+    playbook.io.nrs.gov.bc.ca/deploymentConfigPaths: playbooks
+    playbook.io.nrs.gov.bc.ca/toolsBuildSecrets: ""
+    playbook.io.nrs.gov.bc.ca/toolsLocalBuildSecrets: ""

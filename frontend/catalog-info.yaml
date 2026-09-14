@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  system: qs-knox
+  type: website
+  lifecycle: production
+  owner: ""
+metadata:
+  name: qs-knox-frontend
+  description: Quick Start Knox Frontend
+  title: ""
+  annotations:
+    license: Apache-2.0
+    github.com/project-slug: bcgov/oscar-qs-knox
+    composer.io.nrs.gov.bc.ca/generators: backstage
