@@ -12,6 +12,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - package_name: oscar-qs-knox/qs-knox-backend
+            keep_versions: 10
           - package_name: oscar-qs-knox/qs-knox-frontend
             keep_versions: 10
 
