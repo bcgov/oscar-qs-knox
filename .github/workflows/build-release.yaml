@@ -1,0 +1,28 @@
+name: Build and publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  actions: read
+  contents: read
+  packages: write
+  pull-requests: read
+
+jobs:
+  qs-knox-backend:
+    uses: ./.github/workflows/build-release-qs-knox-backend.yaml
+    secrets: inherit
+  qs-knox-frontend:
+    uses: ./.github/workflows/build-release-qs-knox-frontend.yaml
+    secrets: inherit
