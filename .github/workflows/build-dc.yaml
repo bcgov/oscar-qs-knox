@@ -13,7 +13,7 @@ concurrency:
 
 env:
   BROKER_URL: https://broker.io.nrs.gov.bc.ca
-  BROKER_JWT: ${{ secrets.broker_jwt_fff }}
+  BROKER_JWT: ${{ secrets.broker_jwt_e985d455_b0ff_470b_8731_e004fcfac915 }}
 
 jobs:
   build-dc:
@@ -54,7 +54,7 @@ jobs:
       - name: Open intention
         uses: bcgov-nr/action-broker-intention-open@v2.1.0
         with:
-          broker_jwt: ${{ secrets.broker_jwt_fff }}
+          broker_jwt: ${{ secrets.broker_jwt_e985d455_b0ff_470b_8731_e004fcfac915 }}
           intention_path: intention.json
       - name: Start action qs-knox-backend
         uses: bcgov-nr/action-broker-action-start@v2.1.0

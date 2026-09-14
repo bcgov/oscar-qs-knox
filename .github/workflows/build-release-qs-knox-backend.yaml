@@ -5,7 +5,7 @@ on:
 
 env:
   BROKER_URL: https://broker.io.nrs.gov.bc.ca
-  BROKER_JWT: ${{ secrets.broker_jwt_fff }}
+  BROKER_JWT: ${{ secrets.broker_jwt_e985d455_b0ff_470b_8731_e004fcfac915 }}
   SERVICE_PROJECT: qs-knox
   SERVICE_NAME: qs-knox-backend
   DEFAULT_VERSION: ${{ vars.DEFAULT_VERSION || '0.0.0' }}-merge
@@ -21,7 +21,7 @@ jobs:
       preflight_context: build
       catalog_info: backend/catalog-info.yaml
     secrets:
-      token: ${{ secrets.broker_jwt_fff }}
+      token: ${{ secrets.broker_jwt_e985d455_b0ff_470b_8731_e004fcfac915 }}
   build-publish:
     name: Build and publish
     runs-on: ubuntu-latest
@@ -79,7 +79,7 @@ jobs:
       - name: Open intention
         uses: bcgov-nr/action-broker-intention-open@v2
         with:
-          broker_jwt: ${{ secrets.broker_jwt_fff }}
+          broker_jwt: ${{ secrets.broker_jwt_e985d455_b0ff_470b_8731_e004fcfac915 }}
           intention_path: intention.json
           quickstart: true
       - name: Echo intention ID for deploy job
