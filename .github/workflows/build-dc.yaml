@@ -83,7 +83,7 @@ jobs:
           echo "Resolved deploy_type: ${{ env.DEPLOY_TYPE }}"
           echo "Resolved deploy_config_path: ${{ env.DEPLOYMENT_CONFIG_PATHS }}"
         env:
-          DEPLOYMENT_CONFIG_PATHS: catalog-info.yaml backend/catalog-info.yaml backend/playbooks
+          DEPLOYMENT_CONFIG_PATHS: catalog-info.yaml backend/catalog-info.yaml backend/charts frontend/catalog-info.yaml frontend/charts
           DEPLOY_TYPE: 
           PROJECT_SLUG: bcgov/oscar-qs-knox
       - name: Push deployment config to registry
@@ -94,7 +94,7 @@ jobs:
           title: deployment-config
           description: Deployment configuration ${{ steps.set-version.outputs.tag }}
           project_tag: ${{ steps.set-version.outputs.tag }}
-          publish_dir: catalog-info.yaml backend/catalog-info.yaml backend/playbooks
+          publish_dir: catalog-info.yaml backend/catalog-info.yaml backend/charts frontend/catalog-info.yaml frontend/charts
           github_token: ${{ secrets.GITHUB_TOKEN }}
           extra_annotations: |
             {

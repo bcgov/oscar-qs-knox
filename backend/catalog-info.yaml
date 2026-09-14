@@ -19,6 +19,6 @@ metadata:
     playbook.io.nrs.gov.bc.ca/unitTestsPath: ""
     playbook.io.nrs.gov.bc.ca/artifactRepositoryType: GitHubPackages
     playbook.io.nrs.gov.bc.ca/artifactRepositoryPath: https://maven.pkg.github.com/bcgov/oscar-qs-knox
-    playbook.io.nrs.gov.bc.ca/deploymentConfigPaths: playbooks
+    playbook.io.nrs.gov.bc.ca/deploymentConfigPaths: charts
     playbook.io.nrs.gov.bc.ca/toolsBuildSecrets: ""
     playbook.io.nrs.gov.bc.ca/toolsLocalBuildSecrets: ""
