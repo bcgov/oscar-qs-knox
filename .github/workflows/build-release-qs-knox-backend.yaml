@@ -112,17 +112,6 @@ jobs:
           tags: ghcr.io/${{ github.repository }}/qs-knox-backend:${{ steps.set-build-output-parameters.outputs.project_version }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-      - name: Publish artifact
-        if: ${{ 'website' != 'library' }}
-        id: publish-artifact
-        uses: ./.github/actions/oci-publish
-        with:
-          service_name: qs-knox-backend
-          license: Apache-2.0
-          project_tag: ${{ steps.set-build-output-parameters.outputs.project_version }}
-          publish_dir: dist
-          working_directory: ./backend
-          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Send build info
         if: ${{ 'website' != 'library' }}
         run: |
@@ -133,10 +122,9 @@ jobs:
               --max-time 30 \
               --connect-timeout 10 \
               --retry-delay 5 \
-              -d '{"package":{"checksum": "sha256:'${ARTIFACT_SHA256}'", "size": '${ARTIFACT_SIZE}'}}'
+              -d '{"package":{"checksum": "'${ARTIFACT_SHA256}'"}}'
         env:
-          ARTIFACT_SHA256: ${{ steps.publish-artifact.outputs.artifact_sha256 }}
-          ARTIFACT_SIZE: ${{ steps.publish-artifact.outputs.artifact_size }}
+          ARTIFACT_SHA256: ${{ steps.build-docker.outputs.digest }}
           BUILD_TOKEN: ${{ env.ACTION_TOKEN_BUILD }}
       - name: Close intention
         if: ${{ success() && env.INTENTION_TOKEN != '' }}
@@ -169,4 +157,4 @@ jobs:
           CHECKOUT_REF: ${{ steps.version-detect.outputs.checkout_ref }}
           COMMIT_HASH: ${{ steps.set-build-output-parameters.outputs.git_commit }}
           PROJECT_VERSION: ${{ steps.set-build-output-parameters.outputs.project_version }}
-          ARTIFACT_SHA256: ${{ steps.publish-artifact.outputs.artifact_sha256 || 'N/A' }}
+          ARTIFACT_SHA256: ${{ steps.build-docker.outputs.digest || 'N/A' }}
